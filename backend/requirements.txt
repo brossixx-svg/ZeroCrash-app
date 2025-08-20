@@ -1,0 +1,46 @@
+# ZeroCrash Backend Dependencies
+
+# FastAPI and ASGI server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# HTTP client
+httpx==0.25.2
+
+# Data validation and serialization
+pydantic==2.5.0
+
+# Caching
+redis==5.0.1
+cachetools==5.3.2
+
+# Database
+sqlite3
+
+# Authentication and security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# Background tasks
+celery==5.3.4
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+
+# Development
+black==23.11.0
+flake8==6.1.0
+isort==5.12.0
+
+# Monitoring and logging
+python-json-logger==2.0.7
+prometheus-client==0.19.0
+
+# Date and time utilities
+python-dateutil==2.8.2
+
+# Environment variables
+python-dotenv==1.0.0

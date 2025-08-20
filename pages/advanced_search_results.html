@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ricerca Avanzata & Risultati - ZeroCrash</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fzerocrash8354back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Global Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-50 backdrop-blur-md bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="dashboard_home.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L3 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L16 2z"/>
+                            <path d="M14 14l-2-2-1.41 1.41L14 16.83l6-6L18.59 9.41 14 14z" fill="white"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold text-text-primary">ZeroCrash</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="dashboard_home.html" class="text-text-secondary hover:text-primary transition-smooth">Dashboard</a>
+                    <a href="advanced_search_results.html" class="text-primary font-medium">Ricerca</a>
+                    <a href="category_management.html" class="text-text-secondary hover:text-primary transition-smooth">Categorie</a>
+                    <a href="seo_suggestion_generator.html" class="text-text-secondary hover:text-primary transition-smooth">SEO Generator</a>
+                    <a href="settings_configuration.html" class="text-text-secondary hover:text-primary transition-smooth">Impostazioni</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-md text-text-secondary hover:text-primary hover:bg-secondary-50 transition-smooth" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-surface border-t border-border" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="dashboard_home.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Dashboard</a>
+                <a href="advanced_search_results.html" class="block px-3 py-2 text-primary font-medium">Ricerca</a>
+                <a href="category_management.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Categorie</a>
+                <a href="seo_suggestion_generator.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">SEO Generator</a>
+                <a href="settings_configuration.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Impostazioni</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="bg-secondary-50 border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="dashboard_home.html" class="text-text-secondary hover:text-primary transition-smooth">Dashboard</a>
+                <svg class="w-4 h-4 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-primary font-medium">Ricerca Avanzata</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Advanced Search Bar -->
+        <section class="mb-6">
+            <div class="card p-6">
+                <div class="flex flex-col lg:flex-row gap-4">
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input type="text" placeholder="Cerca contenuti IT... (usa &quot;virgolette&quot; per frasi esatte, + per termini obbligatori)" class="input-field w-full pl-10 pr-4 py-3 text-lg" id="advanced-search-input" value="intelligenza artificiale machine learning" />
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn-primary px-6 py-3 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            Cerca
+                        </button>
+                        <button class="btn-secondary px-4 py-3 flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                            </svg>
+                            Salva Ricerca
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Search Tips -->
+                <div class="mt-4 p-3 bg-accent-50 rounded-lg">
+                    <p class="text-sm text-accent-700">
+                        <strong>Suggerimenti:</strong> Usa "virgolette" per frasi esatte, + per termini obbligatori, - per escludere termini
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three Panel Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left Sidebar - Filters (3 cols) -->
+            <aside class="lg:col-span-3">
+                <div class="sticky top-24 space-y-4">
+                    <!-- Filter Header -->
+                    <div class="card p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-heading font-semibold text-text-primary">Filtri</h3>
+                            <button class="text-sm text-primary hover:text-primary-700 transition-smooth">Reset</button>
+                        </div>
+
+                        <!-- Source Types Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-medium text-text-primary mb-3 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Fonti
+                            </h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                    <span class="ml-2 text-sm">Google News</span>
+                                    <span class="ml-auto text-xs text-text-secondary">1,247</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                    <span class="ml-2 text-sm">YouTube</span>
+                                    <span class="ml-auto text-xs text-text-secondary">892</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                    <span class="ml-2 text-sm">Reddit</span>
+                                    <span class="ml-auto text-xs text-text-secondary">634</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Date Range Filter -->
+                        <div class="mb-6">
+                            <h4 class="font-medium text-text-primary mb-3 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                </svg>
+                                Periodo
+                            </h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="dateRange" class="border-border text-primary focus:ring-primary" checked />
+                                    <span class="ml-2 text-sm">Ultima settimana</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="dateRange" class="border-border text-primary focus:ring-primary" />
+                                    <span class="ml-2 text-sm">Ultimo mese</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="dateRange" class="border-border text-primary focus:ring-primary" />
+                                    <span class="ml-2 text-sm">Ultimi 3 mesi</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="dateRange" class="border-border text-primary focus:ring-primary" />
+                                    <span class="ml-2 text-sm">Personalizzato</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Popularity Threshold -->
+                        <div class="mb-6">
+                            <h4 class="font-medium text-text-primary mb-3 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                Popolarità
+                            </h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                    <span class="ml-2 text-sm">Alta (1000+ interazioni)</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                    <span class="ml-2 text-sm">Media (100+ interazioni)</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                    <span class="ml-2 text-sm">Bassa (10+ interazioni)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- IT Categories -->
+                        <div class="mb-6">
+                            <h4 class="font-medium text-text-primary mb-3 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                                Categorie IT
+                            </h4>
+                            <div class="space-y-2">
+                                <!-- AI/ML Category -->
+                                <div class="border border-border rounded-lg p-2">
+                                    <button class="flex items-center justify-between w-full text-left" onclick="toggleCategory('ai-ml')">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                            <span class="ml-2 text-sm font-medium">AI/Machine Learning</span>
+                                        </label>
+                                        <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="ai-ml-icon">
+                                            <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                        </svg>
+                                    </button>
+                                    <div class="mt-2 ml-6 space-y-1 hidden" id="ai-ml-subcategories">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                            <span class="ml-2 text-xs">Deep Learning</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                            <span class="ml-2 text-xs">Natural Language Processing</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                            <span class="ml-2 text-xs">Computer Vision</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Security Category -->
+                                <div class="border border-border rounded-lg p-2">
+                                    <button class="flex items-center justify-between w-full text-left" onclick="toggleCategory('security')">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                            <span class="ml-2 text-sm font-medium">Cybersecurity</span>
+                                        </label>
+                                        <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="security-icon">
+                                            <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                        </svg>
+                                    </button>
+                                    <div class="mt-2 ml-6 space-y-1 hidden" id="security-subcategories">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                            <span class="ml-2 text-xs">Penetration Testing</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                            <span class="ml-2 text-xs">Malware Analysis</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Cloud/DevOps Category -->
+                                <div class="border border-border rounded-lg p-2">
+                                    <button class="flex items-center justify-between w-full text-left" onclick="toggleCategory('cloud')">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                            <span class="ml-2 text-sm font-medium">Cloud/DevOps</span>
+                                        </label>
+                                        <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="cloud-icon">
+                                            <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                        </svg>
+                                    </button>
+                                    <div class="mt-2 ml-6 space-y-1 hidden" id="cloud-subcategories">
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                            <span class="ml-2 text-xs">Kubernetes</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                            <span class="ml-2 text-xs">Docker</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" />
+                                            <span class="ml-2 text-xs">AWS</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Filter Button -->
+                    <button class="lg:hidden fixed bottom-6 right-6 bg-primary text-white p-4 rounded-full shadow-lg z-50 flex items-center gap-2" id="mobile-filter-btn">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.707A1 1 0 013 7V4z"/>
+                        </svg>
+                        <span class="hidden sm:inline">Filtri</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Results Area (9 cols) -->
+            <section class="lg:col-span-9">
+                <!-- Results Header -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-heading font-semibold text-text-primary">Risultati della Ricerca</h2>
+                        <p class="text-text-secondary mt-1">2,773 risultati trovati per "intelligenza artificiale machine learning"</p>
+                    </div>
+                    
+                    <!-- Sort and View Options -->
+                    <div class="flex items-center gap-3">
+                        <select class="input-field text-sm">
+                            <option>Rilevanza</option>
+                            <option>Data (più recente)</option>
+                            <option>Data (meno recente)</option>
+                            <option>Popolarità</option>
+                            <option>Fonte</option>
+                        </select>
+                        
+                        <div class="flex border border-border rounded-lg">
+                            <button class="p-2 bg-primary text-white rounded-l-lg">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                </svg>
+                            </button>
+                            <button class="p-2 text-text-secondary hover:text-primary rounded-r-lg">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Feed -->
+                <div class="space-y-4" id="results-container">
+                    <!-- Google News Result -->
+                    <article class="card p-6 hover:shadow-md transition-smooth">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="badge-success">Google News</span>
+                                    <span class="text-xs text-text-secondary">TechCrunch Italia</span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">2 ore fa</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-text-primary mb-2 hover:text-primary cursor-pointer">
+                                    <a href="javascript:void(0)">L'intelligenza artificiale rivoluziona il machine learning: nuovi algoritmi per il 2025</a>
+                                </h3>
+                                <p class="text-text-secondary text-sm mb-3 line-clamp-2">
+                                    Le ultime innovazioni nel campo dell'AI stanno trasformando radicalmente l'approccio al machine learning, con algoritmi più efficienti e precisi che promettono di rivoluzionare diversi settori industriali...
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs bg-primary-50 text-primary px-2 py-1 rounded">AI/ML</span>
+                                        <span class="text-xs bg-accent-50 text-accent-700 px-2 py-1 rounded">Deep Learning</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Salva">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="p-1 text-text-secondary hover:text-accent transition-smooth" title="Genera SEO">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Visualizza fonte">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- YouTube Result -->
+                    <article class="card p-6 hover:shadow-md transition-smooth">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Video thumbnail" class="w-24 h-16 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="badge-error">YouTube</span>
+                                    <span class="text-xs text-text-secondary">AI Academy Italia</span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">1 giorno fa</span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">45.2K visualizzazioni</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-text-primary mb-2 hover:text-primary cursor-pointer">
+                                    <a href="javascript:void(0)">Machine Learning Spiegato Semplice: Guida Completa 2025</a>
+                                </h3>
+                                <p class="text-text-secondary text-sm mb-3 line-clamp-2">
+                                    In questo video esploriamo i concetti fondamentali del machine learning, dalle basi teoriche alle applicazioni pratiche. Perfetto per principianti e professionisti che vogliono aggiornarsi...
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs bg-primary-50 text-primary px-2 py-1 rounded">AI/ML</span>
+                                        <span class="text-xs bg-secondary-100 text-secondary-700 px-2 py-1 rounded">Tutorial</span>
+                                        <div class="flex items-center gap-1 text-xs text-text-secondary">
+                                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span>45.2K</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Salva">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="p-1 text-text-secondary hover:text-accent transition-smooth" title="Genera SEO">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Visualizza fonte">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Reddit Result -->
+                    <article class="card p-6 hover:shadow-md transition-smooth">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="badge-warning">Reddit</span>
+                                    <span class="text-xs text-text-secondary">r/MachineLearning</span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">u/AIResearcher_IT</span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">3 ore fa</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-text-primary mb-2 hover:text-primary cursor-pointer">
+                                    <a href="javascript:void(0)">[D] Quali sono le migliori librerie Python per iniziare con il Machine Learning nel 2025?</a>
+                                </h3>
+                                <p class="text-text-secondary text-sm mb-3 line-clamp-2">
+                                    Ciao a tutti! Sto iniziando il mio percorso nel ML e vorrei sapere quali librerie Python consigliate per un principiante. Ho sentito parlare di scikit-learn, TensorFlow e PyTorch, ma non so da dove iniziare...
+                                </p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs bg-primary-50 text-primary px-2 py-1 rounded">AI/ML</span>
+                                        <span class="text-xs bg-secondary-100 text-secondary-700 px-2 py-1 rounded">Python</span>
+                                        <div class="flex items-center gap-3 text-xs text-text-secondary">
+                                            <div class="flex items-center gap-1">
+                                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
+                                                </svg>
+                                                <span>127</span>
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                                </svg>
+                                                <span>43</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Salva">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="p-1 text-text-secondary hover:text-accent transition-smooth" title="Genera SEO">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Visualizza fonte">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Loading Skeleton -->
+                    <div class="space-y-4" id="loading-skeleton">
+                        <div class="card p-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gray-200 rounded-lg skeleton"></div>
+                                <div class="flex-1">
+                                    <div class="h-4 bg-gray-200 rounded skeleton mb-2 w-1/4"></div>
+                                    <div class="h-6 bg-gray-200 rounded skeleton mb-2 w-3/4"></div>
+                                    <div class="h-4 bg-gray-200 rounded skeleton mb-1 w-full"></div>
+                                    <div class="h-4 bg-gray-200 rounded skeleton mb-3 w-2/3"></div>
+                                    <div class="flex gap-2">
+                                        <div class="h-6 bg-gray-200 rounded skeleton w-16"></div>
+                                        <div class="h-6 bg-gray-200 rounded skeleton w-20"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-8">
+                    <button class="btn-primary px-8 py-3 flex items-center gap-2 mx-auto" id="load-more-btn">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        Carica Altri Risultati
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Mobile Filter Overlay -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden" id="mobile-filter-overlay">
+        <div class="fixed inset-y-0 left-0 w-80 bg-surface shadow-xl z-50 overflow-y-auto" id="mobile-filter-panel">
+            <div class="p-4 border-b border-border">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-heading font-semibold text-text-primary">Filtri</h3>
+                    <button class="p-2 text-text-secondary hover:text-primary" id="close-mobile-filter">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="p-4">
+                <!-- Mobile filter content would be duplicated here -->
+                <p class="text-text-secondary">Filtri mobili implementati qui...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Category toggle functionality
+        function toggleCategory(categoryId) {
+            const subcategories = document.getElementById(categoryId + '-subcategories');
+            const icon = document.getElementById(categoryId + '-icon');
+            
+            subcategories.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Mobile filter toggle
+        document.getElementById('mobile-filter-btn').addEventListener('click', function() {
+            document.getElementById('mobile-filter-overlay').classList.remove('hidden');
+        });
+
+        document.getElementById('close-mobile-filter').addEventListener('click', function() {
+            document.getElementById('mobile-filter-overlay').classList.add('hidden');
+        });
+
+        document.getElementById('mobile-filter-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Simulate infinite scroll
+        let loading = false;
+        document.getElementById('load-more-btn').addEventListener('click', function() {
+            if (loading) return;
+            
+            loading = true;
+            const skeleton = document.getElementById('loading-skeleton');
+            skeleton.classList.remove('hidden');
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                skeleton.classList.add('hidden');
+                loading = false;
+                // Here you would normally load more results
+            }, 2000);
+        });
+
+        // Search functionality
+        document.getElementById('advanced-search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                // Simulate search
+                console.log('Searching for:', this.value);
+            }
+        });
+
+        // Real-time filtering simulation
+        document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+            input.addEventListener('change', function() {
+                // Simulate real-time filtering
+                console.log('Filter changed:', this.name, this.checked || this.value);
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

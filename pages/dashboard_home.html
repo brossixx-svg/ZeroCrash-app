@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Home - ZeroCrash</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fzerocrash8354back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Global Navigation Header -->
+    <header class="bg-surface border-b border-border sticky top-0 z-50 backdrop-blur-md bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="dashboard_home.html" class="flex items-center space-x-2">
+                        <svg class="w-8 h-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L3 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L16 2z"/>
+                            <path d="M14 14l-2-2-1.41 1.41L14 16.83l6-6L18.59 9.41 14 14z" fill="white"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold text-text-primary">ZeroCrash</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="dashboard_home.html" class="text-primary font-medium">Dashboard</a>
+                    <a href="advanced_search_results.html" class="text-text-secondary hover:text-primary transition-smooth">Search</a>
+                    <a href="category_management.html" class="text-text-secondary hover:text-primary transition-smooth">Categories</a>
+                    <a href="seo_suggestion_generator.html" class="text-text-secondary hover:text-primary transition-smooth">SEO Tools</a>
+                    <a href="settings_configuration.html" class="text-text-secondary hover:text-primary transition-smooth">Settings</a>
+                </nav>
+
+                <!-- User Profile Dropdown -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <button class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-smooth" id="user-menu-btn">
+                            <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm font-medium">U</span>
+                            </div>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-48 bg-surface border border-border rounded-lg shadow-lg hidden" id="user-menu">
+                            <div class="py-1">
+                                <a href="#" class="block px-4 py-2 text-sm text-text-primary hover:bg-secondary-50 transition-smooth">Profile</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-text-primary hover:bg-secondary-50 transition-smooth">Account Settings</a>
+                                <hr class="border-border my-1" />
+                                <a href="#" class="block px-4 py-2 text-sm text-text-primary hover:bg-secondary-50 transition-smooth">Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-md text-text-secondary hover:text-primary hover:bg-secondary-50 transition-smooth" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-surface border-t border-border" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="dashboard_home.html" class="block px-3 py-2 text-primary font-medium">Dashboard</a>
+                <a href="advanced_search_results.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Search</a>
+                <a href="category_management.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Categories</a>
+                <a href="seo_suggestion_generator.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">SEO Tools</a>
+                <a href="settings_configuration.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Settings</a>
+                <div class="border-t border-border mt-2 pt-2">
+                    <a href="#" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Profile</a>
+                    <a href="#" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h1 class="text-3xl font-heading font-semibold text-text-primary">Welcome back!</h1>
+                    <p class="text-text-secondary mt-2">Discover trending IT content and insights from across the web</p>
+                </div>
+                <div class="text-sm text-text-secondary">
+                    <time datetime="2025-01-18">Saturday, January 18, 2025</time>
+                </div>
+            </div>
+        </div>
+
+        <!-- Three Panel Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left Sidebar - IT Taxonomy (3 cols) -->
+            <aside class="lg:col-span-3">
+                <div class="card p-4 sticky top-24">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-heading font-semibold text-text-primary">IT Categories</h3>
+                        <button class="text-sm text-primary hover:text-primary-700 transition-smooth" id="expand-all-btn">Expand All</button>
+                    </div>
+
+                    <!-- Mobile Category Dropdown -->
+                    <div class="lg:hidden mb-4">
+                        <select class="input-field w-full" id="mobile-category-select">
+                            <option value>Select Category</option>
+                            <option value="ai-ml">AI & Machine Learning</option>
+                            <option value="security">Cybersecurity</option>
+                            <option value="cloud">Cloud Computing</option>
+                            <option value="web-dev">Web Development</option>
+                            <option value="mobile">Mobile Development</option>
+                            <option value="data">Data Science</option>
+                            <option value="devops">DevOps & Infrastructure</option>
+                            <option value="blockchain">Blockchain</option>
+                            <option value="iot">Internet of Things</option>
+                        </select>
+                    </div>
+
+                    <!-- Desktop Hierarchical Categories -->
+                    <div class="hidden lg:block space-y-2" id="category-tree">
+                        <!-- AI/Machine Learning Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('ai-ml')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                    </svg>
+                                    <span class="font-medium">AI & Machine Learning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">247</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="ai-ml-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="ai-ml-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Deep Learning</span>
+                                        <span class="text-xs">89</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Natural Language Processing</span>
+                                        <span class="text-xs">64</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Computer Vision</span>
+                                        <span class="text-xs">52</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Neural Networks</span>
+                                        <span class="text-xs">42</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cybersecurity Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('security')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                    <span class="font-medium">Cybersecurity</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">189</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="security-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="security-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Penetration Testing</span>
+                                        <span class="text-xs">47</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Malware Analysis</span>
+                                        <span class="text-xs">38</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Network Security</span>
+                                        <span class="text-xs">56</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Incident Response</span>
+                                        <span class="text-xs">48</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cloud Computing Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('cloud')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+                                    </svg>
+                                    <span class="font-medium">Cloud Computing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">156</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="cloud-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="cloud-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>AWS</span>
+                                        <span class="text-xs">67</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Azure</span>
+                                        <span class="text-xs">43</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Google Cloud</span>
+                                        <span class="text-xs">31</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Serverless</span>
+                                        <span class="text-xs">15</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Web Development Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('web-dev')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                    </svg>
+                                    <span class="font-medium">Web Development</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">234</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="web-dev-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="web-dev-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>React</span>
+                                        <span class="text-xs">89</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Vue.js</span>
+                                        <span class="text-xs">54</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Node.js</span>
+                                        <span class="text-xs">67</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>TypeScript</span>
+                                        <span class="text-xs">24</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Development Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('mobile')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                    </svg>
+                                    <span class="font-medium">Mobile Development</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">98</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="mobile-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="mobile-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>React Native</span>
+                                        <span class="text-xs">34</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Flutter</span>
+                                        <span class="text-xs">28</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>iOS Development</span>
+                                        <span class="text-xs">21</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Android Development</span>
+                                        <span class="text-xs">15</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Science Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('data')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                    <span class="font-medium">Data Science</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">145</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="data-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="data-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Python Data Science</span>
+                                        <span class="text-xs">56</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Big Data</span>
+                                        <span class="text-xs">42</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Data Visualization</span>
+                                        <span class="text-xs">31</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Statistical Analysis</span>
+                                        <span class="text-xs">16</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DevOps Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('devops')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <span class="font-medium">DevOps & Infrastructure</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">123</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="devops-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="devops-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Docker</span>
+                                        <span class="text-xs">45</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Kubernetes</span>
+                                        <span class="text-xs">38</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>CI/CD</span>
+                                        <span class="text-xs">29</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Infrastructure as Code</span>
+                                        <span class="text-xs">11</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blockchain Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('blockchain')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                                    </svg>
+                                    <span class="font-medium">Blockchain</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">87</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="blockchain-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="blockchain-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Smart Contracts</span>
+                                        <span class="text-xs">34</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>DeFi</span>
+                                        <span class="text-xs">28</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>NFTs</span>
+                                        <span class="text-xs">15</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Web3</span>
+                                        <span class="text-xs">10</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Internet of Things Category -->
+                        <div class="border border-border rounded-lg">
+                            <button class="flex items-center justify-between w-full p-3 text-left hover:bg-secondary-50 transition-smooth" onclick="toggleCategory('iot')">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                                    </svg>
+                                    <span class="font-medium">Internet of Things</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-xs text-text-secondary mr-2">65</span>
+                                    <svg class="w-4 h-4 text-text-secondary transform transition-transform" id="iot-icon">
+                                        <path fill="currentColor" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div class="hidden border-t border-border bg-secondary-50/50" id="iot-subcategories">
+                                <div class="p-3 space-y-2">
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Arduino</span>
+                                        <span class="text-xs">23</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Raspberry Pi</span>
+                                        <span class="text-xs">19</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Industrial IoT</span>
+                                        <span class="text-xs">14</span>
+                                    </a>
+                                    <a href="#" class="flex items-center justify-between text-sm text-text-secondary hover:text-primary transition-smooth">
+                                        <span>Edge Computing</span>
+                                        <span class="text-xs">9</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area (9 cols) -->
+            <section class="lg:col-span-6">
+                <!-- Search Bar Section -->
+                <div class="card p-6 mb-6">
+                    <div class="flex flex-col gap-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Search across Google News, YouTube, and Reddit..." class="input-field w-full pl-12 pr-4 py-4 text-lg" id="main-search-input" />
+                            <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            <button class="absolute right-3 top-1/2 transform -translate-y-1/2 btn-primary px-4 py-2">
+                                Search
+                            </button>
+                        </div>
+                        
+                        <!-- Source Toggles -->
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <span class="text-sm font-medium text-text-secondary">Sources:</span>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                <span class="ml-2 text-sm">Google News</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                <span class="ml-2 text-sm">YouTube</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded border-border text-primary focus:ring-primary" checked />
+                                <span class="ml-2 text-sm">Reddit</span>
+                            </label>
+                        </div>
+
+                        <!-- Search History Dropdown -->
+                        <div class="relative">
+                            <button class="text-sm text-primary hover:text-primary-700 transition-smooth flex items-center" id="search-history-btn">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Recent searches
+                            </button>
+                            <div class="absolute top-full left-0 mt-1 w-64 bg-surface border border-border rounded-lg shadow-lg hidden z-10" id="search-history-dropdown">
+                                <div class="p-2">
+                                    <div class="text-xs text-text-secondary mb-2">Recent searches</div>
+                                    <div class="space-y-1">
+                                        <a href="#" class="block px-2 py-1 text-sm text-text-primary hover:bg-secondary-50 rounded">machine learning algorithms</a>
+                                        <a href="#" class="block px-2 py-1 text-sm text-text-primary hover:bg-secondary-50 rounded">cybersecurity trends 2025</a>
+                                        <a href="#" class="block px-2 py-1 text-sm text-text-primary hover:bg-secondary-50 rounded">react vs vue performance</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Content Section -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-heading font-semibold text-text-primary">Trending IT Content</h2>
+                        <button class="text-sm text-primary hover:text-primary-700 transition-smooth flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Export trends
+                        </button>
+                    </div>
+
+                    <!-- Content Cards -->
+                    <div class="space-y-4">
+                        <!-- Trending Card 1 -->
+                        <article class="card p-6 hover:shadow-md transition-smooth">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="badge-success">Google News</span>
+                                        <span class="text-xs text-text-secondary">TechCrunch</span>
+                                        <span class="text-xs text-text-secondary">•</span>
+                                        <span class="text-xs text-text-secondary">2 hours ago</span>
+                                        <div class="flex items-center gap-1 ml-auto">
+                                            <svg class="w-3 h-3 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                            </svg>
+                                            <span class="text-xs text-accent font-medium">Trending</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2 hover:text-primary cursor-pointer">
+                                        <a href="#" onclick="openContent(this)" data-url="https://techcrunch.com/ai-revolution-2025">OpenAI Releases GPT-5: Revolutionary Breakthrough in AI Reasoning</a>
+                                    </h3>
+                                    <p class="text-text-secondary text-sm mb-3 line-clamp-2">
+                                        OpenAI announced GPT-5 with unprecedented reasoning capabilities, marking a significant leap in artificial intelligence. The new model demonstrates advanced problem-solving abilities and multimodal understanding...
+                                    </p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <span class="text-xs bg-primary-50 text-primary px-2 py-1 rounded">AI/ML</span>
+                                            <span class="text-xs bg-accent-50 text-accent-700 px-2 py-1 rounded">OpenAI</span>
+                                            <div class="flex items-center gap-1 text-xs text-text-secondary">
+                                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>45.2K views</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Bookmark">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="p-1 text-text-secondary hover:text-accent transition-smooth" title="Generate SEO">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Trending Card 2 -->
+                        <article class="card p-6 hover:shadow-md transition-smooth">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="relative">
+                                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Video thumbnail" class="w-24 h-16 object-cover rounded-lg" />
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                                                <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M8 5v14l11-7z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="badge-error">YouTube</span>
+                                        <span class="text-xs text-text-secondary">Fireship</span>
+                                        <span class="text-xs text-text-secondary">•</span>
+                                        <span class="text-xs text-text-secondary">6 hours ago</span>
+                                        <div class="flex items-center gap-1 ml-auto">
+                                            <svg class="w-3 h-3 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                            </svg>
+                                            <span class="text-xs text-accent font-medium">Hot</span>
+                                        </div>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2 hover:text-primary cursor-pointer">
+                                        <a href="#" onclick="openContent(this)" data-url="https://youtube.com/watch?v=react2025">React 19 vs Vue 4 vs Angular 18 - The Ultimate 2025 Comparison</a>
+                                    </h3>
+                                    <p class="text-text-secondary text-sm mb-3 line-clamp-2">
+                                        An in-depth comparison of the latest versions of the top 3 JavaScript frameworks. Performance benchmarks, developer experience, and ecosystem analysis for 2025...
+                                    </p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <span class="text-xs bg-primary-50 text-primary px-2 py-1 rounded">Web Dev</span>
+                                            <span class="text-xs bg-secondary-100 text-secondary-700 px-2 py-1 rounded">React</span>
+                                            <div class="flex items-center gap-1 text-xs text-text-secondary">
+                                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                                                </svg>
+                                                <span>892K views</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Bookmark">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="p-1 text-text-secondary hover:text-accent transition-smooth" title="Generate SEO">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Trending Card 3 -->
+                        <article class="card p-6 hover:shadow-md transition-smooth">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="badge-warning">Reddit</span>
+                                        <span class="text-xs text-text-secondary">r/cybersecurity</span>
+                                        <span class="text-xs text-text-secondary">•</span>
+                                        <span class="text-xs text-text-secondary">u/SecurityPro</span>
+                                        <span class="text-xs text-text-secondary">•</span>
+                                        <span class="text-xs text-text-secondary">4 hours ago</span>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-text-primary mb-2 hover:text-primary cursor-pointer">
+                                        <a href="#" onclick="openContent(this)" data-url="https://reddit.com/r/cybersecurity/major-breach-2025">[NEWS] Major Zero-Day Exploit Discovered in Popular Enterprise Software</a>
+                                    </h3>
+                                    <p class="text-text-secondary text-sm mb-3 line-clamp-2">
+                                        A critical zero-day vulnerability affecting over 50,000 organizations worldwide has been discovered. Security researchers are working around the clock to develop patches...
+                                    </p>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center gap-2 flex-wrap">
+                                            <span class="text-xs bg-primary-50 text-primary px-2 py-1 rounded">Security</span>
+                                            <span class="text-xs bg-error-100 text-error-700 px-2 py-1 rounded">Zero-day</span>
+                                            <div class="flex items-center gap-3 text-xs text-text-secondary">
+                                                <div class="flex items-center gap-1">
+                                                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/>
+                                                    </svg>
+                                                    <span>3.4K upvotes</span>
+                                                </div>
+                                                <div class="flex items-center gap-1">
+                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                                    </svg>
+                                                    <span>847 comments</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="p-1 text-text-secondary hover:text-primary transition-smooth" title="Bookmark">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="p-1 text-text-secondary hover:text-accent transition-smooth" title="Generate SEO">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Load More Button -->
+                        <div class="text-center mt-6">
+                            <button class="btn-secondary px-6 py-3 flex items-center gap-2 mx-auto" id="load-more-trending">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                                Load More Trending
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel (3 cols on desktop, moves below on tablet, hidden on mobile) -->
+            <aside class="lg:col-span-3 hidden md:block lg:block">
+                <div class="space-y-6 sticky top-24">
+                    <!-- Quick Stats -->
+                    <div class="card p-4">
+                        <h3 class="font-heading font-semibold text-text-primary mb-4">Today's Insights</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="text-2xl font-bold text-primary">2,847</div>
+                                    <div class="text-xs text-text-secondary">New Articles</div>
+                                </div>
+                                <div class="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="text-2xl font-bold text-accent">189</div>
+                                    <div class="text-xs text-text-secondary">Trending Topics</div>
+                                </div>
+                                <div class="w-12 h-12 bg-accent-50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <div class="text-2xl font-bold text-success">42</div>
+                                    <div class="text-xs text-text-secondary">SEO Opportunities</div>
+                                </div>
+                                <div class="w-12 h-12 bg-success-50 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saved Searches -->
+                    <div class="card p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-heading font-semibold text-text-primary">Saved Searches</h3>
+                            <button class="text-xs text-primary hover:text-primary-700 transition-smooth">View All</button>
+                        </div>
+                        <div class="space-y-2">
+                            <a href="#" class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-lg transition-smooth">
+                                <span class="text-sm text-text-primary">kubernetes security</span>
+                                <span class="text-xs text-text-secondary">47 new</span>
+                            </a>
+                            <a href="#" class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-lg transition-smooth">
+                                <span class="text-sm text-text-primary">react performance</span>
+                                <span class="text-xs text-text-secondary">23 new</span>
+                            </a>
+                            <a href="#" class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-lg transition-smooth">
+                                <span class="text-sm text-text-primary">ai ethics</span>
+                                <span class="text-xs text-text-secondary">15 new</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Recent SEO Suggestions -->
+                    <div class="card p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-heading font-semibold text-text-primary">SEO Suggestions</h3>
+                            <a href="seo_suggestion_generator.html" class="text-xs text-primary hover:text-primary-700 transition-smooth">Generate More</a>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-accent-50 rounded-lg border-l-4 border-accent">
+                                <div class="text-sm font-medium text-text-primary mb-1">High-Volume Keyword</div>
+                                <div class="text-xs text-text-secondary mb-2">"AI development tools 2025"</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs bg-accent text-white px-2 py-1 rounded">8.2K/month</span>
+                                    <span class="text-xs text-accent-700">Low competition</span>
+                                </div>
+                            </div>
+                            <div class="p-3 bg-success-50 rounded-lg border-l-4 border-success">
+                                <div class="text-sm font-medium text-text-primary mb-1">Trending Topic</div>
+                                <div class="text-xs text-text-secondary mb-2">"Zero-day vulnerabilities"</div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xs bg-success text-white px-2 py-1 rounded">+340% this week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="card p-4">
+                        <h3 class="font-heading font-semibold text-text-primary mb-4">Quick Actions</h3>
+                        <div class="space-y-2">
+                            <a href="seo_suggestion_generator.html" class="flex items-center p-3 bg-primary-50 text-primary rounded-lg hover:bg-primary-100 transition-smooth">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                                <span class="text-sm font-medium">SEO Generator</span>
+                            </a>
+                            <button class="flex items-center w-full p-3 bg-secondary-50 text-text-secondary rounded-lg hover:bg-secondary-100 transition-smooth" onclick="exportTrends()">
+                                <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                </svg>
+                                <span class="text-sm font-medium">Export Trends</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // User profile dropdown
+        document.getElementById('user-menu-btn').addEventListener('click', function() {
+            const userMenu = document.getElementById('user-menu');
+            userMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#user-menu-btn')) {
+                document.getElementById('user-menu').classList.add('hidden');
+            }
+            if (!e.target.closest('#search-history-btn')) {
+                document.getElementById('search-history-dropdown').classList.add('hidden');
+            }
+        });
+
+        // Category toggle functionality
+        function toggleCategory(categoryId) {
+            const subcategories = document.getElementById(categoryId + '-subcategories');
+            const icon = document.getElementById(categoryId + '-icon');
+            
+            subcategories.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Expand/Collapse all categories
+        let allExpanded = false;
+        document.getElementById('expand-all-btn').addEventListener('click', function() {
+            const button = this;
+            const categories = ['ai-ml', 'security', 'cloud', 'web-dev', 'mobile', 'data', 'devops', 'blockchain', 'iot'];
+            
+            categories.forEach(categoryId => {
+                const subcategories = document.getElementById(categoryId + '-subcategories');
+                const icon = document.getElementById(categoryId + '-icon');
+                
+                if (allExpanded) {
+                    subcategories.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                } else {
+                    subcategories.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                }
+            });
+            
+            allExpanded = !allExpanded;
+            button.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+        });
+
+        // Mobile category select
+        document.getElementById('mobile-category-select').addEventListener('change', function() {
+            const categoryId = this.value;
+            if (categoryId) {
+                // Simulate category filtering for mobile
+                console.log('Mobile category selected:', categoryId);
+                // You would implement category filtering logic here
+            }
+        });
+
+        // Search functionality
+        document.getElementById('main-search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch(this.value);
+            }
+        });
+
+        function performSearch(query) {
+            if (query.trim()) {
+                console.log('Searching for:', query);
+                // Redirect to advanced search results with query
+                window.location.href = `advanced_search_results.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+
+        // Search history dropdown
+        document.getElementById('search-history-btn').addEventListener('click', function() {
+            const dropdown = document.getElementById('search-history-dropdown');
+            dropdown.classList.toggle('hidden');
+        });
+
+        // Content interaction
+        function openContent(link) {
+            const url = link.getAttribute('data-url');
+            console.log('Opening content:', url);
+            // You would implement content opening logic here
+            // For demo purposes, just preventing default behavior
+            return false;
+        }
+
+        // Bookmark functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('button[title="Bookmark"]')) {
+                e.preventDefault();
+                const button = e.target.closest('button');
+                const svg = button.querySelector('svg');
+                
+                // Toggle bookmark state
+                if (svg.getAttribute('fill') === 'currentColor') {
+                    svg.setAttribute('fill', 'none');
+                    button.classList.remove('text-accent');
+                    button.classList.add('text-text-secondary');
+                } else {
+                    svg.setAttribute('fill', 'currentColor');
+                    button.classList.remove('text-text-secondary');
+                    button.classList.add('text-accent');
+                }
+            }
+        });
+
+        // SEO generation
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('button[title="Generate SEO"]')) {
+                e.preventDefault();
+                console.log('Generating SEO suggestions...');
+                // Redirect to SEO generator
+                window.location.href = 'seo_suggestion_generator.html';
+            }
+        });
+
+        // Load more trending content
+        document.getElementById('load-more-trending').addEventListener('click', function() {
+            console.log('Loading more trending content...');
+            // You would implement infinite scroll or load more functionality here
+        });
+
+        // Export trends functionality
+        function exportTrends() {
+            console.log('Exporting trends...');
+            // You would implement export functionality here
+        }
+
+        // Real-time updates simulation
+        setInterval(function() {
+            // Simulate real-time updates to stats
+            const statsElements = document.querySelectorAll('.text-2xl.font-bold');
+            if (statsElements.length > 0) {
+                // Randomly update one of the stats
+                const randomStat = statsElements[Math.floor(Math.random() * statsElements.length)];
+                const currentValue = parseInt(randomStat.textContent.replace(',', ''));
+                const newValue = currentValue + Math.floor(Math.random() * 10);
+                randomStat.textContent = newValue.toLocaleString();
+            }
+        }, 30000); // Update every 30 seconds
+
+        // Initialize tooltips and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+            console.log('Dashboard Home initialized');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestione Categorie - ZeroCrash</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/tailwind.css" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fzerocrash8354back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-surface border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L3 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-13-5z"/>
+                            <path d="M14 14l-2-2-1.41 1.41L14 16.83l6-6L18.59 9.41 14 14z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-semibold text-text-primary">ZeroCrash</h1>
+                        <p class="text-xs text-text-secondary">IT Content Aggregator</p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="dashboard_home.html" class="text-text-secondary hover:text-primary transition-smooth px-3 py-2 rounded-md text-sm font-medium">
+                        Dashboard
+                    </a>
+                    <a href="advanced_search_results.html" class="text-text-secondary hover:text-primary transition-smooth px-3 py-2 rounded-md text-sm font-medium">
+                        Ricerca Avanzata
+                    </a>
+                    <a href="category_management.html" class="bg-primary-50 text-primary border-b-2 border-primary px-3 py-2 rounded-md text-sm font-medium">
+                        Categorie
+                    </a>
+                    <a href="seo_suggestion_generator.html" class="text-text-secondary hover:text-primary transition-smooth px-3 py-2 rounded-md text-sm font-medium">
+                        SEO Generator
+                    </a>
+                    <a href="settings_configuration.html" class="text-text-secondary hover:text-primary transition-smooth px-3 py-2 rounded-md text-sm font-medium">
+                        Impostazioni
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" id="mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border">
+                <a href="dashboard_home.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Dashboard</a>
+                <a href="advanced_search_results.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Ricerca Avanzata</a>
+                <a href="category_management.html" class="block px-3 py-2 bg-primary-50 text-primary font-medium">Categorie</a>
+                <a href="seo_suggestion_generator.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">SEO Generator</a>
+                <a href="settings_configuration.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-smooth">Impostazioni</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h1 class="text-3xl font-heading font-bold text-text-primary">Gestione Categorie</h1>
+                    <p class="mt-2 text-text-secondary">Organizza e gestisci i contenuti IT attraverso la tassonomia gerarchica</p>
+                </div>
+                <div class="mt-4 sm:mt-0 flex space-x-3">
+                    <button class="btn-secondary text-sm">
+                        <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Esporta
+                    </button>
+                    <button class="btn-primary text-sm">
+                        <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                        Nuova Categoria
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="bg-surface rounded-lg border border-border p-4 mb-6 floating-action">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div class="flex-1 max-w-md">
+                    <div class="relative">
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="text" placeholder="Cerca categorie..." class="input-field pl-10 w-full" />
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <select class="input-field text-sm">
+                        <option>Tutte le fonti</option>
+                        <option>Google News</option>
+                        <option>YouTube</option>
+                        <option>Reddit</option>
+                    </select>
+                    <select class="input-field text-sm">
+                        <option>Ordina per popolarità</option>
+                        <option>Ordina per data</option>
+                        <option>Ordina per nome</option>
+                    </select>
+                    <button class="btn-accent text-sm">
+                        <svg class="w-4 h-4 mr-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Taxonomy Tree (Left Panel) -->
+            <div class="lg:col-span-4">
+                <div class="bg-surface rounded-lg border border-border p-6 sticky top-32">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-heading font-semibold text-text-primary">Tassonomia IT</h2>
+                        <button class="text-text-secondary hover:text-primary transition-smooth">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Category Tree -->
+                    <div class="space-y-2 max-h-96 overflow-y-auto">
+                        <!-- AI/ML Category -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('ai-ml')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="ai-ml-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">AI/ML</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="badge-success">847</span>
+                                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse" title="Trending"></div>
+                                </div>
+                            </div>
+                            <div class="ml-6 space-y-1 hidden" id="ai-ml-subcategories">
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">Machine Learning</span>
+                                    <span class="text-xs text-text-secondary">234</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">Deep Learning</span>
+                                    <span class="text-xs text-text-secondary">189</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">Natural Language Processing</span>
+                                    <span class="text-xs text-text-secondary">156</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">Computer Vision</span>
+                                    <span class="text-xs text-text-secondary">143</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">Reinforcement Learning</span>
+                                    <span class="text-xs text-text-secondary">125</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Operating Systems -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('os')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="os-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Sistemi Operativi</span>
+                                </div>
+                                <span class="badge-success">623</span>
+                            </div>
+                            <div class="ml-6 space-y-1 hidden" id="os-subcategories">
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">Linux</span>
+                                    <span class="text-xs text-text-secondary">298</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">Windows</span>
+                                    <span class="text-xs text-text-secondary">187</span>
+                                </div>
+                                <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer">
+                                    <span class="text-sm text-text-secondary">macOS</span>
+                                    <span class="text-xs text-text-secondary">138</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Networks -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('networks')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="networks-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Reti</span>
+                                </div>
+                                <span class="badge-success">445</span>
+                            </div>
+                        </div>
+
+                        <!-- Security -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('security')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="security-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Sicurezza</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="badge-success">756</span>
+                                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse" title="Trending"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cloud/DevOps -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('cloud')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="cloud-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Cloud/DevOps</span>
+                                </div>
+                                <span class="badge-success">589</span>
+                            </div>
+                        </div>
+
+                        <!-- Hardware -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('hardware')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="hardware-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Hardware</span>
+                                </div>
+                                <span class="badge-success">334</span>
+                            </div>
+                        </div>
+
+                        <!-- Software Development -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('development')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="development-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Sviluppo Software</span>
+                                </div>
+                                <span class="badge-success">912</span>
+                            </div>
+                        </div>
+
+                        <!-- Data Analytics -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('analytics')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="analytics-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Data Analytics</span>
+                                </div>
+                                <span class="badge-success">467</span>
+                            </div>
+                        </div>
+
+                        <!-- Emerging Technologies -->
+                        <div class="category-node">
+                            <div class="flex items-center justify-between p-2 hover:bg-secondary-50 rounded-md cursor-pointer transition-smooth" onclick="toggleCategory('emerging')">
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-text-secondary transform transition-transform" id="emerging-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium text-text-primary">Tecnologie Emergenti</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="badge-success">289</span>
+                                    <div class="w-2 h-2 bg-accent rounded-full animate-pulse" title="Trending"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Grid (Right Panel) -->
+            <div class="lg:col-span-8">
+                <div class="bg-surface rounded-lg border border-border p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h2 class="text-lg font-heading font-semibold text-text-primary">Contenuti AI/ML</h2>
+                            <p class="text-sm text-text-secondary mt-1">847 articoli trovati • Aggiornato 5 min fa</p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="text-text-secondary hover:text-primary transition-smooth p-2" title="Vista griglia">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                </svg>
+                            </button>
+                            <button class="text-text-secondary hover:text-primary transition-smooth p-2" title="Vista lista">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Content Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Content Card 1 -->
+                        <div class="card p-4 hover:shadow-card-hover transition-smooth cursor-pointer" draggable="true">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Google News" class="w-5 h-5 rounded" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-xs text-text-secondary">Google News</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="font-medium text-text-primary mb-2 line-clamp-2">OpenAI rilascia GPT-4 Turbo con nuove capacità multimodali</h3>
+                            <p class="text-sm text-text-secondary mb-3 line-clamp-2">Il nuovo modello di linguaggio supporta input di testo, immagini e audio con prestazioni migliorate e costi ridotti...</p>
+                            <div class="flex items-center justify-between text-xs text-text-secondary mb-3">
+                                <span>18/08/2025 - 14:30</span>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                    <span>2.4k</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-primary-50 text-primary text-xs rounded-full">Machine Learning</span>
+                                    <span class="px-2 py-1 bg-accent-50 text-accent text-xs rounded-full">NLP</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth" title="Modifica tag">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Content Card 2 -->
+                        <div class="card p-4 hover:shadow-card-hover transition-smooth cursor-pointer" draggable="true">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="YouTube" class="w-5 h-5 rounded" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-xs text-text-secondary">YouTube</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="font-medium text-text-primary mb-2 line-clamp-2">Tutorial completo: Implementare una rete neurale con TensorFlow</h3>
+                            <p class="text-sm text-text-secondary mb-3 line-clamp-2">Guida step-by-step per creare e addestrare una rete neurale per la classificazione di immagini usando TensorFlow 2.0...</p>
+                            <div class="flex items-center justify-between text-xs text-text-secondary mb-3">
+                                <span>18/08/2025 - 12:15</span>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M15 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    <span>15.7k</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-primary-50 text-primary text-xs rounded-full">Deep Learning</span>
+                                    <span class="px-2 py-1 bg-success-50 text-success text-xs rounded-full">TensorFlow</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth" title="Modifica tag">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Content Card 3 -->
+                        <div class="card p-4 hover:shadow-card-hover transition-smooth cursor-pointer" draggable="true">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://images.pixabay.com/photo/2016/12/28/09/36/web-1935737_1280.png" alt="Reddit" class="w-5 h-5 rounded" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-xs text-text-secondary">Reddit</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="font-medium text-text-primary mb-2 line-clamp-2">Discussione: Migliori pratiche per l'ottimizzazione degli iperparametri</h3>
+                            <p class="text-sm text-text-secondary mb-3 line-clamp-2">La community discute tecniche avanzate per il tuning degli iperparametri in modelli di machine learning complessi...</p>
+                            <div class="flex items-center justify-between text-xs text-text-secondary mb-3">
+                                <span>18/08/2025 - 10:45</span>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                                    </svg>
+                                    <span>89</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-primary-50 text-primary text-xs rounded-full">Machine Learning</span>
+                                    <span class="px-2 py-1 bg-warning-50 text-warning text-xs rounded-full">Ottimizzazione</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth" title="Modifica tag">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Content Card 4 -->
+                        <div class="card p-4 hover:shadow-card-hover transition-smooth cursor-pointer" draggable="true">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center space-x-2">
+                                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Google News" class="w-5 h-5 rounded" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                                    <span class="text-xs text-text-secondary">Google News</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="font-medium text-text-primary mb-2 line-clamp-2">Computer Vision: Breakthrough nella rilevazione di oggetti in tempo reale</h3>
+                            <p class="text-sm text-text-secondary mb-3 line-clamp-2">Nuovo algoritmo raggiunge accuratezza del 98% nella rilevazione di oggetti con latenza inferiore a 10ms...</p>
+                            <div class="flex items-center justify-between text-xs text-text-secondary mb-3">
+                                <span>18/08/2025 - 09:20</span>
+                                <div class="flex items-center space-x-1">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                    <span>3.8k</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-wrap gap-1">
+                                    <span class="px-2 py-1 bg-primary-50 text-primary text-xs rounded-full">Computer Vision</span>
+                                    <span class="px-2 py-1 bg-error-50 text-error text-xs rounded-full">Real-time</span>
+                                </div>
+                                <button class="text-text-secondary hover:text-primary transition-smooth" title="Modifica tag">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="mt-6 text-center">
+                        <button class="btn-secondary">
+                            <svg class="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                            Carica altri contenuti
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Panel -->
+        <div class="mt-8 bg-surface rounded-lg border border-border p-6">
+            <h2 class="text-lg font-heading font-semibold text-text-primary mb-4">Analytics Categorie</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-primary mb-1">4,973</div>
+                    <div class="text-sm text-text-secondary">Contenuti totali</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-accent mb-1">847</div>
+                    <div class="text-sm text-text-secondary">Trending oggi</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-success mb-1">156</div>
+                    <div class="text-sm text-text-secondary">Nuovi contenuti</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-text-secondary">
+                © 2025 ZeroCrash. Tutti i diritti riservati.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Category tree toggle functionality
+        function toggleCategory(categoryId) {
+            const subcategories = document.getElementById(categoryId + '-subcategories');
+            const icon = document.getElementById(categoryId + '-icon');
+            
+            if (subcategories.classList.contains('hidden')) {
+                subcategories.classList.remove('hidden');
+                icon.style.transform = 'rotate(90deg)';
+            } else {
+                subcategories.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Drag and drop functionality for content cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('[draggable="true"]');
+            
+            cards.forEach(card => {
+                card.addEventListener('dragstart', function(e) {
+                    e.dataTransfer.setData('text/plain', '');
+                    this.style.opacity = '0.5';
+                });
+                
+                card.addEventListener('dragend', function(e) {
+                    this.style.opacity = '1';
+                });
+            });
+        });
+
+        // Search functionality
+        document.querySelector('input[placeholder="Cerca categorie..."]').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const categoryNodes = document.querySelectorAll('.category-node');
+            
+            categoryNodes.forEach(node => {
+                const categoryName = node.querySelector('span').textContent.toLowerCase();
+                if (categoryName.includes(searchTerm)) {
+                    node.style.display = 'block';
+                } else {
+                    node.style.display = 'none';
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

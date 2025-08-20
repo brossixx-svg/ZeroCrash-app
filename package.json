@@ -1,0 +1,58 @@
+{
+    "name": "zerocrash",
+    "version": "1.0.0",
+    "description": "AI-powered IT content aggregation and SEO optimization platform",
+    "main": "index.html",
+    "scripts": {
+        "build:css": "npx @dhiwise/component-tagger && npx tailwindcss -i ./css/tailwind.css -o ./css/main.css",
+        "watch:css": "npx @dhiwise/component-tagger && npx tailwindcss -i ./css/tailwind.css -o ./css/main.css --watch",
+        "dev": "npm run watch:css",
+        "start": "npm run build:css && python -m http.server 8080",
+        "backend:start": "cd backend && python main.py",
+        "backend:install": "cd backend && pip install -r requirements.txt",
+        "backend:test": "cd backend && python -m pytest tests/ -v",
+        "test": "npm run backend:test",
+        "setup": "npm install && npm run backend:install",
+        "build": "npm run build:css",
+        "lint": "echo 'Linting...' && echo 'No linting configured yet'",
+        "format": "echo 'Formatting...' && echo 'No formatting configured yet'"
+    },
+    "keywords": [
+        "ai",
+        "seo",
+        "content-aggregation",
+        "fastapi",
+        "tailwind",
+        "it-content",
+        "machine-learning",
+        "web-scraping"
+    ],
+    "author": "ZeroCrash Team",
+    "license": "MIT",
+    "dependencies": {
+        "@dhiwise/component-tagger": "^1.0.10",
+        "@tailwindcss/forms": "^0.5.7",
+        "tailwindcss-animate": "^1.0.7",
+        "tailwindcss-elevation": "^2.0.0",
+        "tailwindcss-fluid-type": "^2.0.7"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.4.17",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/container-queries": "^0.1.1",
+        "@tailwindcss/line-clamp": "^0.1.0",
+        "@tailwindcss/typography": "^0.5.16"
+    },
+    "engines": {
+        "node": ">=16.0.0",
+        "python": ">=3.8.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-username/zerocrash-app.git"
+    },
+    "homepage": "https://zerocrash.app",
+    "bugs": {
+        "url": "https://github.com/your-username/zerocrash-app/issues"
+    }
+}

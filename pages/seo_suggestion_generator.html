@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generatore Suggerimenti SEO - ZeroCrash</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fzerocrash8354back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.6"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-surface border-b border-border sticky top-0 z-50 backdrop-blur-sm bg-surface/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-8 w-8 text-primary" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L3 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L16 2z"/>
+                            <path d="M14 14h4v8h-4z" fill="white"/>
+                            <circle cx="16" cy="10" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-heading font-semibold text-text-primary">ZeroCrash</h1>
+                        <p class="text-xs text-text-secondary">IT Content Aggregator</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="dashboard_home.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <i class="fas fa-home mr-2"></i>Dashboard
+                        </a>
+                        <a href="advanced_search_results.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <i class="fas fa-search mr-2"></i>Ricerca
+                        </a>
+                        <a href="category_management.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <i class="fas fa-tags mr-2"></i>Categorie
+                        </a>
+                        <a href="seo_suggestion_generator.html" class="bg-primary text-white px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-magic mr-2"></i>SEO Tools
+                        </a>
+                        <a href="settings_configuration.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <i class="fas fa-cog mr-2"></i>Impostazioni
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-surface border-t border-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="dashboard_home.html" class="text-text-secondary hover:text-primary block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-home mr-2"></i>Dashboard
+                </a>
+                <a href="advanced_search_results.html" class="text-text-secondary hover:text-primary block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-search mr-2"></i>Ricerca
+                </a>
+                <a href="category_management.html" class="text-text-secondary hover:text-primary block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-tags mr-2"></i>Categorie
+                </a>
+                <a href="seo_suggestion_generator.html" class="bg-primary text-white block px-3 py-2 text-base font-medium rounded-md">
+                    <i class="fas fa-magic mr-2"></i>SEO Tools
+                </a>
+                <a href="settings_configuration.html" class="text-text-secondary hover:text-primary block px-3 py-2 text-base font-medium">
+                    <i class="fas fa-cog mr-2"></i>Impostazioni
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-heading font-bold text-text-primary">Generatore Suggerimenti SEO</h1>
+                    <p class="mt-2 text-text-secondary">Trasforma i contenuti IT di tendenza in raccomandazioni SEO ottimizzate</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="btn-secondary flex items-center">
+                        <i class="fas fa-history mr-2"></i>Cronologia
+                    </button>
+                    <button class="btn-accent flex items-center">
+                        <i class="fas fa-save mr-2"></i>Salva Template
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left Panel - Content Selection -->
+            <div class="lg:col-span-4">
+                <div class="card p-6 sticky top-24">
+                    <h2 class="text-lg font-heading font-semibold text-text-primary mb-4">
+                        <i class="fas fa-file-alt text-primary mr-2"></i>Selezione Contenuti
+                    </h2>
+
+                    <!-- Content Source Tabs -->
+                    <div class="mb-4">
+                        <div class="flex space-x-1 bg-secondary-100 p-1 rounded-lg">
+                            <button class="content-tab active flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors" data-tab="trending">
+                                Trending
+                            </button>
+                            <button class="content-tab flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors" data-tab="saved">
+                                Salvati
+                            </button>
+                            <button class="content-tab flex-1 py-2 px-3 text-sm font-medium rounded-md transition-colors" data-tab="manual">
+                                Manuale
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Trending Content -->
+                    <div id="trending-content" class="content-panel">
+                        <div class="space-y-3">
+                            <div class="content-item p-3 border border-border rounded-lg cursor-pointer hover:border-primary transition-colors" data-content="ai-trends">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="text-sm font-medium text-text-primary mb-1">Intelligenza Artificiale nel 2025</h3>
+                                        <p class="text-xs text-text-secondary mb-2">Le nuove tendenze dell'AI generativa e machine learning...</p>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="badge-success">Google News</span>
+                                            <span class="text-xs text-text-secondary">2h fa</span>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="ml-2 text-primary focus:ring-primary" />
+                                </div>
+                            </div>
+
+                            <div class="content-item p-3 border border-border rounded-lg cursor-pointer hover:border-primary transition-colors" data-content="cybersecurity">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="text-sm font-medium text-text-primary mb-1">Sicurezza Informatica: Nuove Minacce</h3>
+                                        <p class="text-xs text-text-secondary mb-2">Analisi delle vulnerabilità emergenti nel panorama IT...</p>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="badge-warning">YouTube</span>
+                                            <span class="text-xs text-text-secondary">4h fa</span>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="ml-2 text-primary focus:ring-primary" />
+                                </div>
+                            </div>
+
+                            <div class="content-item p-3 border border-border rounded-lg cursor-pointer hover:border-primary transition-colors" data-content="cloud-computing">
+                                <div class="flex items-start justify-between">
+                                    <div class="flex-1">
+                                        <h3 class="text-sm font-medium text-text-primary mb-1">Cloud Computing: Strategie DevOps</h3>
+                                        <p class="text-xs text-text-secondary mb-2">Best practices per l'implementazione di soluzioni cloud...</p>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="badge-error">Reddit</span>
+                                            <span class="text-xs text-text-secondary">6h fa</span>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" class="ml-2 text-primary focus:ring-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Saved Content -->
+                    <div id="saved-content" class="content-panel hidden">
+                        <div class="text-center py-8">
+                            <i class="fas fa-bookmark text-4xl text-secondary-300 mb-4"></i>
+                            <p class="text-text-secondary">Nessun contenuto salvato</p>
+                            <button class="btn-primary mt-3 text-sm">Salva Ricerche</button>
+                        </div>
+                    </div>
+
+                    <!-- Manual Input -->
+                    <div id="manual-content" class="content-panel hidden">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Titolo Contenuto</label>
+                                <input type="text" class="input-field w-full" placeholder="Inserisci il titolo del contenuto..." />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Descrizione</label>
+                                <textarea class="input-field w-full h-24 resize-none" placeholder="Descrivi il contenuto..."></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-text-primary mb-2">Categoria</label>
+                                <select class="input-field w-full">
+                                    <option>Intelligenza Artificiale</option>
+                                    <option>Sicurezza Informatica</option>
+                                    <option>Cloud Computing</option>
+                                    <option>Sviluppo Software</option>
+                                    <option>Reti e Sistemi</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary w-full">Aggiungi Contenuto</button>
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <div class="mt-6 pt-4 border-t border-border">
+                        <button id="generate-seo" class="btn-primary w-full flex items-center justify-center">
+                            <i class="fas fa-magic mr-2"></i>Genera Suggerimenti SEO
+                        </button>
+                        <p class="text-xs text-text-secondary mt-2 text-center">2 contenuti selezionati</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Workspace -->
+            <div class="lg:col-span-8">
+                <div class="card">
+                    <!-- Tab Navigation -->
+                    <div class="border-b border-border">
+                        <nav class="flex space-x-8 px-6 pt-4">
+                            <button class="seo-tab active pb-4 px-1 border-b-2 font-medium text-sm transition-colors" data-tab="titles">
+                                <i class="fas fa-heading mr-2"></i>Titoli SEO
+                            </button>
+                            <button class="seo-tab pb-4 px-1 border-b-2 font-medium text-sm transition-colors" data-tab="meta">
+                                <i class="fas fa-file-text mr-2"></i>Meta Descrizioni
+                            </button>
+                            <button class="seo-tab pb-4 px-1 border-b-2 font-medium text-sm transition-colors" data-tab="outline">
+                                <i class="fas fa-list mr-2"></i>Struttura Contenuto
+                            </button>
+                            <button class="seo-tab pb-4 px-1 border-b-2 font-medium text-sm transition-colors" data-tab="keywords">
+                                <i class="fas fa-key mr-2"></i>Analisi Keywords
+                            </button>
+                        </nav>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="p-6">
+                        <!-- Title Suggestions -->
+                        <div id="titles-panel" class="seo-panel">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-heading font-semibold text-text-primary">Suggerimenti Titoli SEO</h2>
+                                <div class="flex items-center space-x-2">
+                                    <button class="btn-secondary text-sm">
+                                        <i class="fas fa-refresh mr-2"></i>Rigenera
+                                    </button>
+                                    <button class="btn-accent text-sm">
+                                        <i class="fas fa-download mr-2"></i>Esporta
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="title-suggestion p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div class="flex-1">
+                                            <h3 class="font-medium text-text-primary mb-2">Intelligenza Artificiale 2025: Guida Completa alle Nuove Tendenze IT</h3>
+                                            <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                                <span>Caratteri: 72/60</span>
+                                                <span class="flex items-center">
+                                                    <i class="fas fa-star text-accent mr-1"></i>Score SEO: 85/100
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2 ml-4">
+                                            <button class="text-text-secondary hover:text-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-text-secondary hover:text-success">
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="badge-success">Ottimizzato IT</span>
+                                        <span class="badge-warning">Locale</span>
+                                    </div>
+                                </div>
+
+                                <div class="title-suggestion p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div class="flex-1">
+                                            <h3 class="font-medium text-text-primary mb-2">AI e Machine Learning: Le Tecnologie che Rivoluzioneranno il 2025</h3>
+                                            <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                                <span>Caratteri: 68/60</span>
+                                                <span class="flex items-center">
+                                                    <i class="fas fa-star text-accent mr-1"></i>Score SEO: 78/100
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2 ml-4">
+                                            <button class="text-text-secondary hover:text-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-text-secondary hover:text-success">
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="badge-success">Trend Focus</span>
+                                        <span class="badge-warning">Long-tail</span>
+                                    </div>
+                                </div>
+
+                                <div class="title-suggestion p-4 border border-border rounded-lg hover:border-primary transition-colors">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <div class="flex-1">
+                                            <h3 class="font-medium text-text-primary mb-2">Sicurezza Informatica 2025: Proteggere l'Azienda dalle Nuove Minacce</h3>
+                                            <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                                <span>Caratteri: 74/60</span>
+                                                <span class="flex items-center">
+                                                    <i class="fas fa-star text-accent mr-1"></i>Score SEO: 82/100
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2 ml-4">
+                                            <button class="text-text-secondary hover:text-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-text-secondary hover:text-success">
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="badge-error">Business Focus</span>
+                                        <span class="badge-success">High Volume</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- A/B Testing Section -->
+                            <div class="mt-8 p-4 bg-secondary-50 rounded-lg">
+                                <h3 class="font-medium text-text-primary mb-3">
+                                    <i class="fas fa-flask text-primary mr-2"></i>Test A/B Titoli
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="p-3 bg-surface border border-border rounded">
+                                        <h4 class="text-sm font-medium mb-2">Variante A</h4>
+                                        <p class="text-sm text-text-secondary">Intelligenza Artificiale 2025: Guida Completa</p>
+                                        <div class="mt-2 text-xs text-success">CTR Previsto: 3.2%</div>
+                                    </div>
+                                    <div class="p-3 bg-surface border border-border rounded">
+                                        <h4 class="text-sm font-medium mb-2">Variante B</h4>
+                                        <p class="text-sm text-text-secondary">AI 2025: Le Tecnologie che Cambieranno Tutto</p>
+                                        <div class="mt-2 text-xs text-warning">CTR Previsto: 2.8%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Meta Descriptions -->
+                        <div id="meta-panel" class="seo-panel hidden">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-heading font-semibold text-text-primary">Meta Descrizioni Ottimizzate</h2>
+                                <div class="flex items-center space-x-2">
+                                    <button class="btn-secondary text-sm">
+                                        <i class="fas fa-refresh mr-2"></i>Rigenera
+                                    </button>
+                                    <button class="btn-accent text-sm">
+                                        <i class="fas fa-eye mr-2"></i>Anteprima SERP
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="meta-suggestion p-4 border border-border rounded-lg">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <h3 class="font-medium text-text-primary">Per: Intelligenza Artificiale 2025</h3>
+                                        <button class="text-text-secondary hover:text-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="input-field w-full h-20 resize-none">Scopri le ultime tendenze dell'intelligenza artificiale per il 2025. Guida completa su AI generativa, machine learning e tecnologie emergenti che trasformeranno il settore IT italiano.</textarea>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <div class="flex items-center space-x-4 text-text-secondary">
+                                            <span class="character-count">Caratteri: 158/160</span>
+                                            <span class="text-success">✓ Lunghezza ottimale</span>
+                                        </div>
+                                        <button class="btn-primary text-xs">Copia</button>
+                                    </div>
+                                </div>
+
+                                <div class="meta-suggestion p-4 border border-border rounded-lg">
+                                    <div class="flex items-start justify-between mb-3">
+                                        <h3 class="font-medium text-text-primary">Per: Sicurezza Informatica</h3>
+                                        <button class="text-text-secondary hover:text-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="input-field w-full h-20 resize-none">Proteggi la tua azienda dalle nuove minacce informatiche del 2025. Strategie di cybersecurity, best practices e soluzioni innovative per la sicurezza IT aziendale.</textarea>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <div class="flex items-center space-x-4 text-text-secondary">
+                                            <span class="character-count">Caratteri: 152/160</span>
+                                            <span class="text-success">✓ Lunghezza ottimale</span>
+                                        </div>
+                                        <button class="btn-primary text-xs">Copia</button>
+                                    </div>
+                                </div>
+
+                                <!-- SERP Preview -->
+                                <div class="serp-preview p-4 bg-secondary-50 rounded-lg">
+                                    <h3 class="font-medium text-text-primary mb-4">
+                                        <i class="fas fa-search text-primary mr-2"></i>Anteprima SERP
+                                    </h3>
+                                    <div class="bg-surface p-4 rounded border">
+                                        <div class="text-xs text-text-secondary mb-1">www.zerocrash.it › intelligenza-artificiale-2025</div>
+                                        <h4 class="text-lg text-blue-600 hover:underline cursor-pointer mb-1">Intelligenza Artificiale 2025: Guida Completa alle Nuove Tendenze IT</h4>
+                                        <p class="text-sm text-text-secondary">Scopri le ultime tendenze dell'intelligenza artificiale per il 2025. Guida completa su AI generativa, machine learning e tecnologie emergenti...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content Outline -->
+                        <div id="outline-panel" class="seo-panel hidden">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-heading font-semibold text-text-primary">Struttura Contenuto Ottimizzata</h2>
+                                <div class="flex items-center space-x-2">
+                                    <button class="btn-secondary text-sm">
+                                        <i class="fas fa-plus mr-2"></i>Aggiungi Sezione
+                                    </button>
+                                    <button class="btn-accent text-sm">
+                                        <i class="fas fa-file-export mr-2"></i>Esporta Word
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="outline-section">
+                                    <h3 class="font-medium text-text-primary mb-4">Articolo: Intelligenza Artificiale 2025</h3>
+                                    <div class="space-y-3">
+                                        <div class="outline-item p-3 border border-border rounded-lg">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm font-mono text-primary mr-3">H1</span>
+                                                    <input type="text" class="input-field flex-1" value="Intelligenza Artificiale 2025: La Rivoluzione Tecnologica in Corso" />
+                                                </div>
+                                                <button class="text-text-secondary hover:text-error">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                            <div class="text-xs text-text-secondary">Parole chiave: intelligenza artificiale, AI 2025, tecnologia</div>
+                                        </div>
+
+                                        <div class="outline-item p-3 border border-border rounded-lg ml-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm font-mono text-secondary mr-3">H2</span>
+                                                    <input type="text" class="input-field flex-1" value="Cos'è l'Intelligenza Artificiale Generativa" />
+                                                </div>
+                                                <button class="text-text-secondary hover:text-error">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                            <div class="text-xs text-text-secondary">Parole chiave: AI generativa, definizione, esempi</div>
+                                        </div>
+
+                                        <div class="outline-item p-3 border border-border rounded-lg ml-8">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm font-mono text-accent mr-3">H3</span>
+                                                    <input type="text" class="input-field flex-1" value="ChatGPT e Large Language Models" />
+                                                </div>
+                                                <button class="text-text-secondary hover:text-error">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                            <div class="text-xs text-text-secondary">Parole chiave: ChatGPT, LLM, modelli linguistici</div>
+                                        </div>
+
+                                        <div class="outline-item p-3 border border-border rounded-lg ml-8">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm font-mono text-accent mr-3">H3</span>
+                                                    <input type="text" class="input-field flex-1" value="AI per la Generazione di Immagini e Video" />
+                                                </div>
+                                                <button class="text-text-secondary hover:text-error">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                            <div class="text-xs text-text-secondary">Parole chiave: DALL-E, Midjourney, generazione immagini</div>
+                                        </div>
+
+                                        <div class="outline-item p-3 border border-border rounded-lg ml-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm font-mono text-secondary mr-3">H2</span>
+                                                    <input type="text" class="input-field flex-1" value="Applicazioni dell'AI nel Business Italiano" />
+                                                </div>
+                                                <button class="text-text-secondary hover:text-error">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                            <div class="text-xs text-text-secondary">Parole chiave: AI business, aziende italiane, automazione</div>
+                                        </div>
+
+                                        <div class="outline-item p-3 border border-border rounded-lg ml-4">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-sm font-mono text-secondary mr-3">H2</span>
+                                                    <input type="text" class="input-field flex-1" value="Tendenze Future e Previsioni per il 2025" />
+                                                </div>
+                                                <button class="text-text-secondary hover:text-error">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                            <div class="text-xs text-text-secondary">Parole chiave: futuro AI, previsioni 2025, innovazione</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Content Metrics -->
+                                <div class="content-metrics p-4 bg-secondary-50 rounded-lg">
+                                    <h3 class="font-medium text-text-primary mb-4">
+                                        <i class="fas fa-chart-line text-primary mr-2"></i>Metriche Contenuto
+                                    </h3>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-primary">1,200</div>
+                                            <div class="text-xs text-text-secondary">Parole Target</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-success">8.5</div>
+                                            <div class="text-xs text-text-secondary">Readability Score</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-accent">2.3%</div>
+                                            <div class="text-xs text-text-secondary">Keyword Density</div>
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold text-secondary">6</div>
+                                            <div class="text-xs text-text-secondary">Sezioni H2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Keywords Analysis -->
+                        <div id="keywords-panel" class="seo-panel hidden">
+                            <div class="flex items-center justify-between mb-6">
+                                <h2 class="text-xl font-heading font-semibold text-text-primary">Analisi Keywords</h2>
+                                <div class="flex items-center space-x-2">
+                                    <button class="btn-secondary text-sm">
+                                        <i class="fas fa-search mr-2"></i>Ricerca Avanzata
+                                    </button>
+                                    <button class="btn-accent text-sm">
+                                        <i class="fas fa-download mr-2"></i>Esporta CSV
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <!-- Primary Keywords -->
+                                <div class="keywords-section">
+                                    <h3 class="font-medium text-text-primary mb-4">Keywords Primarie</h3>
+                                    <div class="space-y-3">
+                                        <div class="keyword-item p-4 border border-border rounded-lg">
+                                            <div class="flex items-center justify-between mb-3">
+                                                <div class="flex items-center">
+                                                    <h4 class="font-medium text-text-primary mr-3">intelligenza artificiale</h4>
+                                                    <span class="badge-success">Alta priorità</span>
+                                                </div>
+                                                <button class="text-text-secondary hover:text-primary">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                                <div>
+                                                    <span class="text-text-secondary">Volume ricerca:</span>
+                                                    <div class="font-medium text-primary">22,000/mese</div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-text-secondary">Difficoltà:</span>
+                                                    <div class="font-medium text-warning">Media (65)</div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-text-secondary">CPC:</span>
+                                                    <div class="font-medium text-accent">€2.30</div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-text-secondary">Trend:</span>
+                                                    <div class="font-medium text-success">↗ +15%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="keyword-item p-4 border border-border rounded-lg">
+                                            <div class="flex items-center justify-between mb-3">
+                                                <div class="flex items-center">
+                                                    <h4 class="font-medium text-text-primary mr-3">AI generativa</h4>
+                                                    <span class="badge-warning">Media priorità</span>
+                                                </div>
+                                                <button class="text-text-secondary hover:text-primary">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                                <div>
+                                                    <span class="text-text-secondary">Volume ricerca:</span>
+                                                    <div class="font-medium text-primary">8,900/mese</div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-text-secondary">Difficoltà:</span>
+                                                    <div class="font-medium text-success">Bassa (35)</div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-text-secondary">CPC:</span>
+                                                    <div class="font-medium text-accent">€1.85</div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-text-secondary">Trend:</span>
+                                                    <div class="font-medium text-success">↗ +45%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Long-tail Keywords -->
+                                <div class="keywords-section">
+                                    <h3 class="font-medium text-text-primary mb-4">Keywords Long-tail</h3>
+                                    <div class="space-y-2">
+                                        <div class="longtail-keyword p-3 border border-border rounded flex items-center justify-between">
+                                            <div class="flex items-center">
+                                                <span class="text-text-primary mr-3">come funziona intelligenza artificiale</span>
+                                                <span class="text-xs text-text-secondary">1,200/mese</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="badge-success text-xs">Facile</span>
+                                                <button class="text-text-secondary hover:text-primary">
+                                                    <i class="fas fa-plus text-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="longtail-keyword p-3 border border-border rounded flex items-center justify-between">
+                                            <div class="flex items-center">
+                                                <span class="text-text-primary mr-3">intelligenza artificiale esempi pratici</span>
+                                                <span class="text-xs text-text-secondary">890/mese</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="badge-success text-xs">Facile</span>
+                                                <button class="text-text-secondary hover:text-primary">
+                                                    <i class="fas fa-plus text-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="longtail-keyword p-3 border border-border rounded flex items-center justify-between">
+                                            <div class="flex items-center">
+                                                <span class="text-text-primary mr-3">AI per aziende italiane</span>
+                                                <span class="text-xs text-text-secondary">650/mese</span>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="badge-warning text-xs">Media</span>
+                                                <button class="text-text-secondary hover:text-primary">
+                                                    <i class="fas fa-plus text-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Competitor Analysis -->
+                                <div class="competitor-analysis p-4 bg-secondary-50 rounded-lg">
+                                    <h3 class="font-medium text-text-primary mb-4">
+                                        <i class="fas fa-users text-primary mr-2"></i>Analisi Competitor
+                                    </h3>
+                                    <div class="space-y-3">
+                                        <div class="competitor-item flex items-center justify-between p-3 bg-surface rounded border">
+                                            <div>
+                                                <h4 class="font-medium text-text-primary">techcrunch.it</h4>
+                                                <p class="text-sm text-text-secondary">Ranking #3 per "intelligenza artificiale"</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-sm font-medium text-warning">Gap: 12 keywords</div>
+                                                <button class="text-xs text-primary hover:underline">Analizza</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="competitor-item flex items-center justify-between p-3 bg-surface rounded border">
+                                            <div>
+                                                <h4 class="font-medium text-text-primary">wired.it</h4>
+                                                <p class="text-sm text-text-secondary">Ranking #5 per "AI generativa"</p>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-sm font-medium text-success">Gap: 8 keywords</div>
+                                                <button class="text-xs text-primary hover:underline">Analizza</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Toolbar -->
+        <div class="fixed bottom-0 left-0 right-0 bg-surface border-t border-border p-4 z-40">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button class="btn-secondary flex items-center">
+                        <i class="fas fa-layer-group mr-2"></i>Batch Processing
+                    </button>
+                    <button class="btn-secondary flex items-center">
+                        <i class="fas fa-wordpress mr-2"></i>Esporta WordPress
+                    </button>
+                    <button class="btn-secondary flex items-center">
+                        <i class="fas fa-file-pdf mr-2"></i>Genera PDF
+                    </button>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-text-secondary">Ultimo aggiornamento: 18/08/2025 14:50</span>
+                    <button class="btn-primary flex items-center">
+                        <i class="fas fa-save mr-2"></i>Salva Progetto
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Spacing -->
+        <div class="h-20 md:hidden"></div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Content source tabs
+        document.querySelectorAll('.content-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.content-tab').forEach(t => {
+                    t.classList.remove('active', 'bg-primary', 'text-white');
+                    t.classList.add('text-text-secondary');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('text-text-secondary');
+
+                // Hide all content panels
+                document.querySelectorAll('.content-panel').forEach(panel => {
+                    panel.classList.add('hidden');
+                });
+
+                // Show selected content panel
+                const tabName = this.getAttribute('data-tab');
+                document.getElementById(tabName + '-content').classList.remove('hidden');
+            });
+        });
+
+        // SEO tabs
+        document.querySelectorAll('.seo-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.seo-tab').forEach(t => {
+                    t.classList.remove('active', 'border-primary', 'text-primary');
+                    t.classList.add('border-transparent', 'text-text-secondary');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('active', 'border-primary', 'text-primary');
+                this.classList.remove('border-transparent', 'text-text-secondary');
+
+                // Hide all SEO panels
+                document.querySelectorAll('.seo-panel').forEach(panel => {
+                    panel.classList.add('hidden');
+                });
+
+                // Show selected SEO panel
+                const tabName = this.getAttribute('data-tab');
+                document.getElementById(tabName + '-panel').classList.remove('hidden');
+            });
+        });
+
+        // Initialize active states
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial content tab
+            document.querySelector('.content-tab.active').classList.add('bg-primary', 'text-white');
+            
+            // Set initial SEO tab
+            document.querySelector('.seo-tab.active').classList.add('border-primary', 'text-primary');
+            document.querySelector('.seo-tab.active').classList.remove('border-transparent', 'text-text-secondary');
+
+            // Character count for meta descriptions
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('input', function() {
+                    const charCount = this.value.length;
+                    const countElement = this.parentElement.nextElementSibling.querySelector('.character-count');
+                    if (countElement) {
+                        countElement.textContent = `Caratteri: ${charCount}/160`;
+                    }
+                });
+            });
+
+            // Generate SEO button
+            document.getElementById('generate-seo').addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generazione in corso...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-magic mr-2"></i>Genera Suggerimenti SEO';
+                    this.disabled = false;
+                }, 2000);
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
